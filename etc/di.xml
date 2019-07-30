@@ -1,0 +1,19 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="firstKeyOfCollections" xsi:type="string">qeqe</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="qeqe" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">giftcard_code</argument>
+            <argument name="resourceModel" xsi:type="string">Mageplaza\GiftCard\Model\ResourceModel\GiftCard</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Checkout\Block\Cart\Coupon">
+        <plugin name="Mageplaza_GiftCard_ApplyDiscount" type="Mageplaza\GiftCard\Plugin\ApplyDiscountPlugin"/>
+    </type>
+</config>

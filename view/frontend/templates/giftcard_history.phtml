@@ -1,0 +1,58 @@
+<?php
+/** @var \Mageplaza\GiftCard\Block\GiftCardHistory $block */
+//die('1234');
+//$block->get
+?>
+<div class="block block-dashboard-info" >
+    <div class="block-title"><strong>Gift Card Information</strong></div>
+    <div class="block-content">
+        <div class="box box-balance">
+            <strong class="box-title">Balance</strong>
+            <div class="box-content">
+                <p>
+                    <?= $block->getFormatBalance($block->getBalance()) ?>
+                </p>
+            </div>
+        </div>
+        <?php if($block->getConfigData() == 1): ?>
+            <div class="box box-redeem">
+                <strong class="box-title">Redeem</strong>
+                <div class="box-content">
+                    <form action="<?= $block->getUrl('frontgiftcard/index/redeemsave')?>" method="post">
+                        <input required="true" type="text" name="code" placeholder="Enter gift card code">
+                        <button class="btn">Redeem</button>
+                    </form>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="block">
+    <div class="block-title"><strong>History</strong></div>
+    <div class="block-content">
+        <div class="table-wrapper">
+            <table class="data table">
+                <thead>
+                <tr>
+                    <th class="col date">Date</th>
+                    <th class="col">Code</th>
+                    <th class="col amount">Amount</th>
+                    <th class="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($block->getGiftCardHistoryCollection() as $giftcard ): ?>
+                    <tr>
+                        <td><?php echo $block->formatDate($giftcard->getData('action_time'))?></td>
+                        <td><?php echo $giftcard->getData('code')?></td>
+                        <td><?php echo $block->getFormatBalance($giftcard->getData('amount'))?></td>
+                        <td><?php echo $giftcard->getData('action')?></td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,31 @@
+<form action="<?php echo $block->getUrl('frontgiftcard/index/test',['action' => 'insert'])?>" method="post">
+    <table>
+        <tr>
+            <th>Code:</th>
+            <td>
+                <input type="text" name="code">
+            </td>
+        </tr>
+        <tr>
+            <th>Balance:</th>
+            <td>
+                <input type="text" name="balance">
+            </td>
+        </tr>
+        <tr>
+            <th>Amount used:</th>
+            <td>
+                <input type="text" name="amount_used">
+            </td>
+        </tr>
+        <tr>
+            <th>Create from:</th>
+            <td>
+                <input type="text" name="create_from">
+            </td>
+        </tr>
+        <tr>
+            <button type="submit">Insert</button>
+        </tr>
+    </table>
+</form>
